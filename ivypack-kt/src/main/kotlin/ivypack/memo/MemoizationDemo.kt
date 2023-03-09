@@ -7,8 +7,12 @@ fun main() {
 
     println()
 
-    println("Fibonacci: ${fibonacci(15)}")
-    println("Without memoization you might wait for a while, while we burn your CPU.")
+    println("Fibonacci: ${fibonacci(10)}") // Bigger N leads to exponential growth
+    println("Without memoization you might wait for a while...")
+
+    // Memoize a non-recursive function
+    val idMemoized = liftMemo(::id).memoize()
+    idMemoized(5)
 }
 
 // O(2^n) time | O(2^n) space
@@ -37,3 +41,5 @@ fun Memo1<Int, Int>.fibonacci(n: Int): Int = when (n) {
         recurse(n - 1) + recurse(n - 2)
     }
 }
+
+fun id(a: Int): Int = a
