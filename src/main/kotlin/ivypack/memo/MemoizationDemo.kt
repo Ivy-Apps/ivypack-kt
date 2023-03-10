@@ -7,8 +7,8 @@ fun main() {
 
     println()
 
-    println("Fibonacci: ${fibonacci(10)}") // Bigger N leads to exponential growth
     println("Without memoization you might wait for a while...")
+    println("Fibonacci: ${fibonacci(10)}") // Bigger N leads to exponential growth
 
     // Memoize a non-recursive function
     val idMemoized = liftMemo(::id).memoize()
